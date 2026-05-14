@@ -112,6 +112,16 @@ section { padding: 72px 0; }
 .site-footer { border-top: 1px solid var(--border); padding: 28px 0; margin-top: 40px; color: var(--text-muted); font-size: 14px; }
 .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 
+/* ----- Full-recommendation cards (References page) ----- */
+.rec-list { display: grid; gap: 22px; }
+.rec { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px 28px; }
+.rec-head { margin-bottom: 14px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+.rec-head h3 { font-family: var(--font-serif); color: var(--accent); margin: 0 0 4px; font-size: 22px; }
+.rec-title { margin: 0 0 4px; color: var(--text); font-size: 14px; }
+.rec-meta { margin: 0; color: var(--text-muted); font-size: 13px; font-style: italic; }
+.rec-body p { margin: 0 0 12px; }
+.rec-body p:last-child { margin-bottom: 0; }
+
 @media (max-width: 860px) {
   .hero-grid, .card-grid, .quote-grid { grid-template-columns: 1fr; }
   .cta-strip-inner { flex-direction: column; align-items: flex-start; }
