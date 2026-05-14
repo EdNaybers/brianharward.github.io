@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 360" width="1100" height="360" role="img" aria-label="Depolarization Consulting">
+  <title>Depolarization Consulting</title>
+  <defs>
+    <radialGradient id="bg-depolarization-consulting" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1a2029"/>
+      <stop offset="100%" stop-color="#0e1217"/>
+    </radialGradient>
+  </defs>
+  <rect width="1100" height="360" fill="url(#bg-depolarization-consulting)"/>
+
+  <!-- left field lines, curving up & down toward center -->
+  <g fill="none" stroke="#c9a86a" stroke-width="1.2">
+    <path d="M -50 180 Q 200 40, 430 180" stroke-opacity="0.22"/>
+    <path d="M -50 180 Q 200 60, 430 180" stroke-opacity="0.32"/>
+    <path d="M -50 180 Q 200 85, 430 180" stroke-opacity="0.42"/>
+    <path d="M -50 180 Q 200 115, 430 180" stroke-opacity="0.52"/>
+    <path d="M -50 180 Q 200 245, 430 180" stroke-opacity="0.52"/>
+    <path d="M -50 180 Q 200 275, 430 180" stroke-opacity="0.42"/>
+    <path d="M -50 180 Q 200 300, 430 180" stroke-opacity="0.32"/>
+    <path d="M -50 180 Q 200 320, 430 180" stroke-opacity="0.22"/>
+  </g>
+
+  <!-- right field lines, mirrored -->
+  <g fill="none" stroke="#c9a86a" stroke-width="1.2">
+    <path d="M 1150 180 Q 900 40, 670 180" stroke-opacity="0.22"/>
+    <path d="M 1150 180 Q 900 60, 670 180" stroke-opacity="0.32"/>
+    <path d="M 1150 180 Q 900 85, 670 180" stroke-opacity="0.42"/>
+    <path d="M 1150 180 Q 900 115, 670 180" stroke-opacity="0.52"/>
+    <path d="M 1150 180 Q 900 245, 670 180" stroke-opacity="0.52"/>
+    <path d="M 1150 180 Q 900 275, 670 180" stroke-opacity="0.42"/>
+    <path d="M 1150 180 Q 900 300, 670 180" stroke-opacity="0.32"/>
+    <path d="M 1150 180 Q 900 320, 670 180" stroke-opacity="0.22"/>
+  </g>
+
+  <!-- central common ground (concentric target) -->
+  <g fill="none" stroke="#c9a86a">
+    <circle cx="550" cy="180" r="74" stroke-opacity="0.22" stroke-width="1"/>
+    <circle cx="550" cy="180" r="50" stroke-opacity="0.5" stroke-width="1.3"/>
+    <circle cx="550" cy="180" r="28" stroke-opacity="0.85" stroke-width="1.5"/>
+  </g>
+  <circle cx="550" cy="180" r="6" fill="#e0c187"/>
+
+  <!-- convergence anchor dots -->
+  <circle cx="430" cy="180" r="3" fill="#c9a86a"/>
+  <circle cx="670" cy="180" r="3" fill="#c9a86a"/>
+
+</svg>

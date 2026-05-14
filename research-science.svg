@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 360" width="1100" height="360" role="img" aria-label="Research Science">
+  <title>Research Science</title>
+  <defs>
+    <radialGradient id="bg-research-science" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1a2029"/>
+      <stop offset="100%" stop-color="#0e1217"/>
+    </radialGradient>
+  </defs>
+  <rect width="1100" height="360" fill="url(#bg-research-science)"/>
+
+  <!-- subtle grid -->
+  <g stroke="#c9a86a" stroke-opacity="0.07" stroke-width="0.8">
+    <line x1="0" y1="60" x2="1100" y2="60"/>
+    <line x1="0" y1="120" x2="1100" y2="120"/>
+    <line x1="0" y1="240" x2="1100" y2="240"/>
+    <line x1="0" y1="300" x2="1100" y2="300"/>
+    <line x1="100" y1="0" x2="100" y2="360"/>
+    <line x1="200" y1="0" x2="200" y2="360"/>
+    <line x1="300" y1="0" x2="300" y2="360"/>
+    <line x1="400" y1="0" x2="400" y2="360"/>
+    <line x1="500" y1="0" x2="500" y2="360"/>
+    <line x1="600" y1="0" x2="600" y2="360"/>
+    <line x1="700" y1="0" x2="700" y2="360"/>
+    <line x1="800" y1="0" x2="800" y2="360"/>
+    <line x1="900" y1="0" x2="900" y2="360"/>
+    <line x1="1000" y1="0" x2="1000" y2="360"/>
+  </g>
+
+  <!-- x-axis -->
+  <line x1="60" y1="180" x2="1040" y2="180" stroke="#c9a86a" stroke-opacity="0.35" stroke-width="1"/>
+
+  <!-- axis ticks -->
+  <g stroke="#c9a86a" stroke-opacity="0.4" stroke-width="1">
+    <line x1="100" y1="174" x2="100" y2="186"/>
+    <line x1="200" y1="174" x2="200" y2="186"/>
+    <line x1="300" y1="174" x2="300" y2="186"/>
+    <line x1="400" y1="174" x2="400" y2="186"/>
+    <line x1="500" y1="174" x2="500" y2="186"/>
+    <line x1="600" y1="174" x2="600" y2="186"/>
+    <line x1="700" y1="174" x2="700" y2="186"/>
+    <line x1="800" y1="174" x2="800" y2="186"/>
+    <line x1="900" y1="174" x2="900" y2="186"/>
+    <line x1="1000" y1="174" x2="1000" y2="186"/>
+  </g>
+
+  <!-- primary wave (amplitude 100) -->
+  <path d="M 60 180 Q 110 80, 160 180 T 260 180 T 360 180 T 460 180 T 560 180 T 660 180 T 760 180 T 860 180 T 960 180 L 1040 180" fill="none" stroke="#c9a86a" stroke-width="1.8"/>
+
+  <!-- secondary attenuated wave (amplitude 40) -->
+  <path d="M 60 180 Q 110 140, 160 180 T 260 180 T 360 180 T 460 180 T 560 180 T 660 180 T 760 180 T 860 180 T 960 180 L 1040 180" fill="none" stroke="#e0c187" stroke-opacity="0.4" stroke-width="1.1"/>
+
+  <!-- sample points at extrema -->
+  <g fill="#e0c187">
+    <circle cx="110" cy="80" r="3"/>
+    <circle cx="210" cy="280" r="3"/>
+    <circle cx="310" cy="80" r="3"/>
+    <circle cx="410" cy="280" r="3"/>
+    <circle cx="510" cy="80" r="3"/>
+    <circle cx="610" cy="280" r="3"/>
+    <circle cx="710" cy="80" r="3"/>
+    <circle cx="810" cy="280" r="3"/>
+    <circle cx="910" cy="80" r="3"/>
+  </g>
+
+  <!-- zero-crossing dots -->
+  <g fill="#c9a86a">
+    <circle cx="160" cy="180" r="2"/>
+    <circle cx="260" cy="180" r="2"/>
+    <circle cx="360" cy="180" r="2"/>
+    <circle cx="460" cy="180" r="2"/>
+    <circle cx="560" cy="180" r="2"/>
+    <circle cx="660" cy="180" r="2"/>
+    <circle cx="760" cy="180" r="2"/>
+    <circle cx="860" cy="180" r="2"/>
+    <circle cx="960" cy="180" r="2"/>
+  </g>
+
+  <!-- focus brackets framing the peak near (310, 80) -->
+  <g stroke="#c9a86a" fill="none" stroke-width="1.2" stroke-opacity="0.85">
+    <polyline points="290,52 280,52 280,62"/>
+    <polyline points="340,52 350,52 350,62"/>
+    <polyline points="290,108 280,108 280,98"/>
+    <polyline points="340,108 350,108 350,98"/>
+  </g>
+
+</svg>

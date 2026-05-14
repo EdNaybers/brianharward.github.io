@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 360" width="1100" height="360" role="img" aria-label="Ethics">
+  <title>Ethics</title>
+  <defs>
+    <radialGradient id="bg-ethics" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1a2029"/>
+      <stop offset="100%" stop-color="#0e1217"/>
+    </radialGradient>
+  </defs>
+  <rect width="1100" height="360" fill="url(#bg-ethics)"/>
+
+  <!-- horizon -->
+  <line x1="60" y1="305" x2="1040" y2="305" stroke="#c9a86a" stroke-opacity="0.12" stroke-width="1"/>
+
+  <!-- principle "north star" -->
+  <g fill="none" stroke="#c9a86a">
+    <circle cx="550" cy="60" r="42" stroke-opacity="0.22" stroke-width="1" stroke-dasharray="2 5"/>
+    <circle cx="550" cy="60" r="26" stroke-opacity="0.5" stroke-width="1.2"/>
+  </g>
+  <circle cx="550" cy="60" r="6" fill="#e0c187"/>
+
+  <!-- plumb line from principle to beam center -->
+  <line x1="550" y1="102" x2="550" y2="150" stroke="#c9a86a" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="2 3"/>
+
+  <!-- beam -->
+  <line x1="200" y1="155" x2="900" y2="155" stroke="#c9a86a" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- pivot triangle (apex meets beam) -->
+  <polygon points="550,155 532,188 568,188" fill="#c9a86a"/>
+
+  <!-- upright -->
+  <line x1="550" y1="188" x2="550" y2="305" stroke="#c9a86a" stroke-width="1.8"/>
+
+  <!-- hanging lines from beam ends -->
+  <line x1="220" y1="155" x2="220" y2="215" stroke="#c9a86a" stroke-opacity="0.55" stroke-width="1"/>
+  <line x1="880" y1="155" x2="880" y2="215" stroke="#c9a86a" stroke-opacity="0.55" stroke-width="1"/>
+
+  <!-- left mass: square -->
+  <rect x="185" y="215" width="70" height="70" fill="none" stroke="#c9a86a" stroke-width="1.8"/>
+  <circle cx="220" cy="250" r="5" fill="#e0c187"/>
+
+  <!-- right mass: circle -->
+  <circle cx="880" cy="250" r="35" fill="none" stroke="#c9a86a" stroke-width="1.8"/>
+  <polygon points="872,243 888,243 880,259" fill="#e0c187"/>
+
+</svg>

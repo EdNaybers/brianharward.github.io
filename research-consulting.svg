@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 360" width="1100" height="360" role="img" aria-label="Research Consulting">
+  <title>Research Consulting</title>
+  <defs>
+    <radialGradient id="bg-research-consulting" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1a2029"/>
+      <stop offset="100%" stop-color="#0e1217"/>
+    </radialGradient>
+  </defs>
+  <rect width="1100" height="360" fill="url(#bg-research-consulting)"/>
+
+  <!-- baseline -->
+  <line x1="80" y1="200" x2="1020" y2="200" stroke="#c9a86a" stroke-opacity="0.18" stroke-width="1"/>
+
+  <!-- subtle underlying trend arc -->
+  <path d="M 90 262 Q 500 248, 900 200" fill="none" stroke="#c9a86a" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="2 5"/>
+
+  <!-- raw scatter, left third -->
+  <g fill="#c9a86a">
+    <circle cx="105" cy="130" r="2.5"/>
+    <circle cx="125" cy="240" r="2.5"/>
+    <circle cx="145" cy="92" r="2.5"/>
+    <circle cx="160" cy="278" r="2.5"/>
+    <circle cx="180" cy="165" r="2.5"/>
+    <circle cx="200" cy="68" r="2.5"/>
+    <circle cx="215" cy="225" r="2.5"/>
+    <circle cx="235" cy="140" r="2.5"/>
+    <circle cx="255" cy="295" r="2.5"/>
+    <circle cx="275" cy="78" r="2.5"/>
+    <circle cx="290" cy="185" r="2.5"/>
+    <circle cx="310" cy="252" r="2.5"/>
+    <circle cx="330" cy="112" r="2.5"/>
+    <circle cx="350" cy="228" r="2.5"/>
+    <circle cx="172" cy="200" r="2.5"/>
+    <circle cx="247" cy="190" r="2.5"/>
+    <circle cx="320" cy="200" r="2.5"/>
+  </g>
+
+  <!-- middle: drifting toward the trend -->
+  <g fill="#c9a86a">
+    <circle cx="390" cy="170" r="2.5"/>
+    <circle cx="410" cy="232" r="2.5"/>
+    <circle cx="430" cy="185" r="2.5"/>
+    <circle cx="455" cy="215" r="2.5"/>
+    <circle cx="480" cy="175" r="2.5"/>
+    <circle cx="505" cy="210" r="2.5"/>
+    <circle cx="530" cy="188" r="2.5"/>
+    <circle cx="555" cy="208" r="2.5"/>
+    <circle cx="585" cy="192" r="2.5"/>
+    <circle cx="615" cy="203" r="2.5"/>
+  </g>
+
+  <!-- right: tightly aligned signal -->
+  <g fill="#e0c187">
+    <circle cx="655" cy="199" r="2.8"/>
+    <circle cx="690" cy="200" r="2.8"/>
+    <circle cx="725" cy="201" r="2.8"/>
+    <circle cx="760" cy="200" r="2.8"/>
+    <circle cx="795" cy="201" r="2.8"/>
+    <circle cx="830" cy="200" r="2.8"/>
+  </g>
+
+  <!-- arrow continuing the signal -->
+  <g stroke="#e0c187" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="865" y1="200" x2="985" y2="200"/>
+    <polyline points="965,189 985,200 965,211"/>
+  </g>
+
+  <!-- bottom scale ticks (measurement) -->
+  <g stroke="#c9a86a" stroke-opacity="0.3" stroke-width="1">
+    <line x1="100" y1="335" x2="1000" y2="335"/>
+    <line x1="100" y1="328" x2="100" y2="342"/>
+    <line x1="200" y1="330" x2="200" y2="340"/>
+    <line x1="300" y1="330" x2="300" y2="340"/>
+    <line x1="400" y1="330" x2="400" y2="340"/>
+    <line x1="500" y1="328" x2="500" y2="342"/>
+    <line x1="600" y1="330" x2="600" y2="340"/>
+    <line x1="700" y1="330" x2="700" y2="340"/>
+    <line x1="800" y1="330" x2="800" y2="340"/>
+    <line x1="900" y1="328" x2="900" y2="342"/>
+    <line x1="1000" y1="330" x2="1000" y2="340"/>
+  </g>
+
+</svg>
