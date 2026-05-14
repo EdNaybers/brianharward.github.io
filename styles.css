@@ -148,52 +148,101 @@ section { padding: 72px 0; }
   .about-photo-float { margin: 2px 16px 8px 0; }
 }
 
-
 /* =====================================================================
-   Primary nav dropdown (Consulting submenu)
+   Primary nav with Consulting dropdown — v2
    ===================================================================== */
-.primary-nav { display: flex; align-items: center; }
-.primary-nav > a, .primary-nav .nav-top {
-  color: var(--text-muted); margin-left: 22px; font-size: 15px; font-weight: 500;
-  display: inline-block;
+
+/* Layout the nav as a clean horizontal flex row */
+.primary-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 6px;
 }
-.primary-nav > a:hover, .primary-nav > a.active,
-.primary-nav .nav-top:hover, .primary-nav .nav-top.active { color: var(--text); text-decoration: none; }
-.primary-nav > a.active, .primary-nav .nav-top.active { color: var(--accent); }
 
-.nav-item.has-dropdown { position: relative; display: inline-block; }
-.nav-item.has-dropdown > .nav-top { padding: 6px 0; cursor: pointer; }
-.nav-item.has-dropdown .caret { font-size: 11px; margin-left: 2px; color: var(--text-muted); }
+/* Make the dropdown wrapper behave like a normal nav link */
+.primary-nav .nav-item.has-dropdown {
+  position: relative;
+  margin-left: 22px;
+}
+.primary-nav .nav-item.has-dropdown:first-child { margin-left: 0; }
 
-.nav-item.has-dropdown .dropdown {
+/* Top-level link inside the dropdown wrapper — match other nav links */
+.primary-nav .nav-item.has-dropdown > .nav-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 0;
+  padding: 4px 0;
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.primary-nav .nav-item.has-dropdown > .nav-top:hover { color: var(--text); text-decoration: none; }
+.primary-nav .nav-item.has-dropdown > .nav-top.active { color: var(--accent); }
+.primary-nav .nav-item.has-dropdown .caret {
+  font-size: 10px;
+  color: var(--text-muted);
+  transition: transform .15s ease;
+}
+.primary-nav .nav-item.has-dropdown:hover .caret,
+.primary-nav .nav-item.has-dropdown:focus-within .caret { transform: rotate(180deg); color: var(--text); }
+
+/* The dropdown panel — absolute, hidden by default */
+.primary-nav .nav-item.has-dropdown .dropdown {
   position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  min-width: 230px;
+  top: calc(100% + 10px);
+  left: -8px;
+  min-width: 240px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 8px 0;
-  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  box-shadow: 0 14px 36px rgba(0,0,0,.55);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-4px);
-  transition: opacity .15s ease, transform .15s ease, visibility .15s;
+  transition: opacity .15s ease, transform .15s ease, visibility .15s linear;
   z-index: 100;
+  display: flex;
+  flex-direction: column;
 }
-.nav-item.has-dropdown:hover .dropdown,
-.nav-item.has-dropdown:focus-within .dropdown {
+
+/* Invisible hover bridge so cursor doesn't fall into a gap */
+.primary-nav .nav-item.has-dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 14px;
+  width: 100%;
+  pointer-events: none;
+}
+.primary-nav .nav-item.has-dropdown:hover::after,
+.primary-nav .nav-item.has-dropdown:focus-within::after { pointer-events: auto; }
+
+.primary-nav .nav-item.has-dropdown:hover .dropdown,
+.primary-nav .nav-item.has-dropdown:focus-within .dropdown {
   opacity: 1; visibility: visible; transform: translateY(0);
 }
-.nav-item.has-dropdown .dropdown a {
+
+/* Dropdown items — reset the global ".primary-nav a" margin */
+.primary-nav .nav-item.has-dropdown .dropdown a {
   display: block;
-  padding: 9px 18px;
+  padding: 10px 18px;
   margin: 0;
   color: var(--text-muted);
   font-size: 14.5px;
+  font-weight: 500;
+  white-space: nowrap;
 }
-.nav-item.has-dropdown .dropdown a:hover { background: var(--bg-elev); color: var(--text); text-decoration: none; }
-.nav-item.has-dropdown .dropdown a.active { color: var(--accent); }
+.primary-nav .nav-item.has-dropdown .dropdown a:hover {
+  background: var(--bg-elev);
+  color: var(--text);
+  text-decoration: none;
+}
+.primary-nav .nav-item.has-dropdown .dropdown a.active { color: var(--accent); }
 
 /* Subpage cards on Consulting overview */
 .subpage-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
@@ -207,12 +256,30 @@ section { padding: 72px 0; }
 .subpage-card p { color: var(--text-muted); margin: 0 0 14px; }
 .subpage-card .card-link { font-size: 14px; color: var(--link); }
 
+/* Mobile (≤860px): nav wraps cleanly, dropdown becomes inline indented list */
 @media (max-width: 860px) {
   .subpage-cards { grid-template-columns: 1fr; }
-  .nav-item.has-dropdown .dropdown {
-    position: static; opacity: 1; visibility: visible; transform: none;
-    box-shadow: none; border: none; background: transparent; padding: 4px 0 8px 14px;
+
+  .primary-nav { width: 100%; flex-direction: column; align-items: flex-start; row-gap: 2px; }
+  .primary-nav > a,
+  .primary-nav .nav-item.has-dropdown { margin-left: 0; width: 100%; }
+  .primary-nav > a { padding: 6px 0; }
+
+  .primary-nav .nav-item.has-dropdown > .nav-top { padding: 6px 0; }
+
+  .primary-nav .nav-item.has-dropdown .dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 2px 0 6px 16px;
     min-width: 0;
+    width: 100%;
   }
-  .nav-item.has-dropdown .caret { display: none; }
+  .primary-nav .nav-item.has-dropdown .dropdown a { padding: 5px 0; }
+  .primary-nav .nav-item.has-dropdown::after { display: none; }
+  .primary-nav .nav-item.has-dropdown .caret { display: none; }
 }
