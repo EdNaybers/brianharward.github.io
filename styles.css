@@ -147,3 +147,72 @@ section { padding: 72px 0; }
   .about-photo { width: 110px; height: 110px; }
   .about-photo-float { margin: 2px 16px 8px 0; }
 }
+
+
+/* =====================================================================
+   Primary nav dropdown (Consulting submenu)
+   ===================================================================== */
+.primary-nav { display: flex; align-items: center; }
+.primary-nav > a, .primary-nav .nav-top {
+  color: var(--text-muted); margin-left: 22px; font-size: 15px; font-weight: 500;
+  display: inline-block;
+}
+.primary-nav > a:hover, .primary-nav > a.active,
+.primary-nav .nav-top:hover, .primary-nav .nav-top.active { color: var(--text); text-decoration: none; }
+.primary-nav > a.active, .primary-nav .nav-top.active { color: var(--accent); }
+
+.nav-item.has-dropdown { position: relative; display: inline-block; }
+.nav-item.has-dropdown > .nav-top { padding: 6px 0; cursor: pointer; }
+.nav-item.has-dropdown .caret { font-size: 11px; margin-left: 2px; color: var(--text-muted); }
+
+.nav-item.has-dropdown .dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 230px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity .15s ease, transform .15s ease, visibility .15s;
+  z-index: 100;
+}
+.nav-item.has-dropdown:hover .dropdown,
+.nav-item.has-dropdown:focus-within .dropdown {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+.nav-item.has-dropdown .dropdown a {
+  display: block;
+  padding: 9px 18px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14.5px;
+}
+.nav-item.has-dropdown .dropdown a:hover { background: var(--bg-elev); color: var(--text); text-decoration: none; }
+.nav-item.has-dropdown .dropdown a.active { color: var(--accent); }
+
+/* Subpage cards on Consulting overview */
+.subpage-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.subpage-card {
+  display: block; padding: 26px 26px 22px;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  color: var(--text); transition: transform .2s ease, border-color .2s ease;
+}
+.subpage-card:hover { transform: translateY(-2px); border-color: var(--accent); text-decoration: none; }
+.subpage-card h3 { font-family: var(--font-serif); font-size: 22px; margin: 0 0 10px; color: var(--accent); }
+.subpage-card p { color: var(--text-muted); margin: 0 0 14px; }
+.subpage-card .card-link { font-size: 14px; color: var(--link); }
+
+@media (max-width: 860px) {
+  .subpage-cards { grid-template-columns: 1fr; }
+  .nav-item.has-dropdown .dropdown {
+    position: static; opacity: 1; visibility: visible; transform: none;
+    box-shadow: none; border: none; background: transparent; padding: 4px 0 8px 14px;
+    min-width: 0;
+  }
+  .nav-item.has-dropdown .caret { display: none; }
+}
