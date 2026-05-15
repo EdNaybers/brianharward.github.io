@@ -749,9 +749,6 @@ body.nav-open { overflow: hidden; }
   max-width:1100px;
   height:auto;
   aspect-ratio:1100 / 360;
-  border-radius:12px;
-  border:1px solid var(--border);
-  margin-bottom:28px;
   background:#0a0d12;
 }
 .research-science .radar,
