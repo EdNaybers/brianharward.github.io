@@ -449,3 +449,90 @@ body.nav-open { overflow: hidden; }
   .depol-header .comb-line { stroke-opacity: 0.28 !important; }
   .depol-header .axis { stroke-opacity: 0.1 !important; }
 }
+
+/* --- Research Consulting: distributions feeding a beacon --- */
+.research-consulting { aspect-ratio: 1100 / 360; }
+
+.research-consulting .axis,
+.research-consulting .tick,
+.research-consulting .insight-line {
+  opacity: 0;
+  animation: rescon-fade-in 0.5s ease-out forwards;
+}
+.research-consulting .axis         { animation-delay: 0.10s; }
+.research-consulting .tick         { animation-delay: 0.20s; }
+.research-consulting .insight-line { animation-delay: 0.25s; }
+
+.research-consulting .curve-group {
+  clip-path: inset(100% 0% 0% 0%);
+  animation: rescon-rise 0.75s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation-delay: calc(0.40s + var(--i, 0) * 0.14s);
+}
+.research-consulting .curve-fill {
+  fill: #c9a86a;
+  fill-opacity: 0.06;
+}
+.research-consulting .curve-stroke {
+  fill: none;
+  stroke: #c9a86a;
+  stroke-opacity: 0.55;
+  stroke-width: 1.3;
+}
+
+.research-consulting .peak-dot {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0.4);
+  animation: rescon-peak-in 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: calc(0.95s + var(--i, 0) * 0.14s);
+}
+
+.research-consulting .thread {
+  opacity: 0;
+  animation: rescon-fade-in 0.5s ease-out forwards;
+  animation-delay: calc(1.55s + var(--i, 0) * 0.12s);
+}
+
+.research-consulting .beacon-core {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0.4);
+  animation: rescon-beacon-ignite 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: 2.20s;
+}
+
+.research-consulting .beacon-ring {
+  fill: none;
+  stroke: #e0c187;
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: rescon-ring-emit 2.6s ease-out infinite;
+}
+.research-consulting .beacon-ring.r1 { animation-delay: 2.55s; }
+.research-consulting .beacon-ring.r2 { animation-delay: 3.42s; }
+.research-consulting .beacon-ring.r3 { animation-delay: 4.28s; }
+
+@keyframes rescon-fade-in { to { opacity: 1; } }
+@keyframes rescon-rise { to { clip-path: inset(0% 0% 0% 0%); } }
+@keyframes rescon-peak-in { to { opacity: 1; transform: scale(1); } }
+@keyframes rescon-beacon-ignite { to { opacity: 1; transform: scale(1); } }
+@keyframes rescon-ring-emit {
+  0%   { transform: scale(0.06); opacity: 0; }
+  8%   { opacity: 0.9; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .research-consulting * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  .research-consulting .beacon-ring { opacity: 0 !important; }
+}
