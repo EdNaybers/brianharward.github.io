@@ -632,3 +632,111 @@ body.nav-open { overflow: hidden; }
   }
   .consulting .ping { opacity:0 !important; }
 }
+
+
+/* === Ethics animated header === */
+.ethics {
+  display:block;
+  width:100%;
+  max-width:1100px;
+  height:auto;
+  aspect-ratio:1100 / 360;
+  border-radius:12px;
+  border:1px solid var(--border);
+  margin-bottom:28px;
+  background:#0a0d12;
+}
+.ethics .horizon {
+  opacity:0;
+  animation:ethics-fade-in 0.5s ease-out 0.05s forwards;
+}
+.ethics .upright {
+  clip-path:inset(100% 0% 0% 0%);
+  animation:ethics-rise 0.5s cubic-bezier(0.22,0.61,0.36,1) 0.20s forwards;
+}
+.ethics .pivot {
+  opacity:0;
+  transform-box:fill-box;
+  transform-origin:center;
+  transform:scale(0.4);
+  animation:ethics-pop-in 0.35s cubic-bezier(0.34,1.56,0.64,1) 0.55s forwards;
+}
+.ethics .beam-left,
+.ethics .beam-right {
+  stroke-dasharray:1;
+  stroke-dashoffset:1;
+  animation:ethics-draw 0.55s cubic-bezier(0.32,0.72,0.36,1) 0.85s forwards;
+}
+.ethics .plumb {
+  stroke-dasharray:1;
+  stroke-dashoffset:1;
+  animation:ethics-draw 0.40s ease-out 1.25s forwards;
+}
+.ethics .principle-outer,
+.ethics .principle-middle,
+.ethics .principle-core {
+  opacity:0;
+}
+.ethics .principle-outer  { animation:ethics-fade-in 0.5s ease-out 1.55s forwards; }
+.ethics .principle-middle { animation:ethics-fade-in 0.5s ease-out 1.65s forwards; }
+.ethics .principle-core {
+  transform-box:fill-box;
+  transform-origin:center;
+  transform:scale(0.4);
+  animation:
+    ethics-pop-in 0.4s cubic-bezier(0.34,1.56,0.64,1) 1.75s forwards,
+    ethics-principle-pulse 3.2s ease-in-out 3.5s infinite;
+}
+.ethics .hang-left,
+.ethics .hang-right {
+  stroke-dasharray:1;
+  stroke-dashoffset:1;
+  animation:ethics-draw 0.40s cubic-bezier(0.32,0.72,0.36,1) 1.50s forwards;
+}
+.ethics .weight-square,
+.ethics .weight-circle {
+  opacity:0;
+  transform-box:fill-box;
+  transform-origin:center;
+  transform:scale(0.4);
+  animation:ethics-pop-in 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+.ethics .weight-square { animation-delay:1.85s; }
+.ethics .weight-circle { animation-delay:1.95s; }
+.ethics .inner-dot,
+.ethics .inner-tri {
+  opacity:0;
+  transform-box:fill-box;
+  transform-origin:center;
+  transform:scale(0.4);
+  animation:ethics-pop-in 0.35s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+.ethics .inner-dot { animation-delay:2.10s; }
+.ethics .inner-tri { animation-delay:2.20s; }
+.ethics .beam-assembly {
+  transform-box:view-box;
+  transform-origin:550px 155px;
+  animation:ethics-balance-rock 7s ease-in-out 3.0s infinite;
+}
+@keyframes ethics-fade-in { to { opacity:1; } }
+@keyframes ethics-rise    { to { clip-path:inset(0% 0% 0% 0%); } }
+@keyframes ethics-draw    { to { stroke-dashoffset:0; } }
+@keyframes ethics-pop-in  { to { opacity:1; transform:scale(1); } }
+@keyframes ethics-principle-pulse {
+  0%, 100% { transform:scale(1);   opacity:1;   }
+  50%      { transform:scale(0.7); opacity:0.55; }
+}
+@keyframes ethics-balance-rock {
+  0%, 100% { transform:rotate(0deg); }
+  25%      { transform:rotate(0.9deg); }
+  75%      { transform:rotate(-0.9deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ethics * {
+    animation:none !important;
+    opacity:1 !important;
+    transform:none !important;
+    clip-path:none !important;
+    stroke-dashoffset:0 !important;
+  }
+}
