@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#000000">
+<title>Contact | Brian Harward, PhD</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .contact-grid { display:grid; gap:48px; grid-template-columns: 1fr; }
+  @media (min-width: 860px) { .contact-grid { grid-template-columns: 1.4fr 1fr; } }
+  .contact-form label { display:block; font-size:0.92rem; margin:14px 0 6px; color:var(--text); }
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    width:100%; box-sizing:border-box;
+    background:rgba(255,255,255,0.03);
+    color:var(--text);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:11px 13px;
+    font:inherit;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .contact-form input:focus, .contact-form textarea:focus {
+    outline:none; border-color:var(--accent); background:rgba(255,255,255,0.05);
+  }
+  .contact-form textarea { min-height:160px; resize:vertical; }
+  .contact-form [aria-invalid="true"] { border-color:#e07b7b; }
+  .contact-form .hp { position:absolute; left:-5000px; width:1px; height:1px; opacity:0; }
+  .contact-form .form-actions { margin-top:22px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .fs-success, .fs-error { margin-top:14px; font-size:0.95rem; }
+  .fs-success { color:#7bc6a3; }
+  .fs-error { color:#e07b7b; }
+  .field-error { display:block; margin-top:4px; font-size:0.85rem; color:#e07b7b; }
+  .contact-side .callout {
+    border-left:3px solid var(--accent);
+    padding:14px 18px;
+    background:rgba(201,168,96,0.06);
+    border-radius:6px;
+    margin:0 0 22px 0;
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+<div class="container nav-row">
+<a class="brand" href="index.html">Brian Harward, <span>PhD</span></a>
+<nav class="primary-nav">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<div class="nav-item has-dropdown">
+<a href="consulting.html" class="nav-top">Consulting <span class="caret" aria-hidden="true">▾</span></a>
+<div class="dropdown" role="menu">
+<a href="consulting.html" role="menuitem">Consulting overview</a>
+<a href="consulting-depolarization.html" role="menuitem">Depolarization Consulting</a>
+<a href="consulting-research.html" role="menuitem">Research Consulting</a>
+</div>
+</div>
+<a href="research.html">Research</a>
+<a href="ethics.html">Ethics</a>
+<a href="references.html">References</a>
+<a href="contact.html" class="active">Contact</a>
+</nav>
+</div>
+</header>
+
+<section class="page-hero">
+<div class="container">
+<h1>Contact</h1>
+<p>Have a project, a question, or a half-formed idea worth talking through? Send a note.</p>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="contact-grid">
+
+<div class="prose">
+<h2>Get in touch</h2>
+<p>The fastest way to reach me is the form below. I read everything personally and usually reply within a couple of business days. If you prefer email, you can also write me directly at <a id="email-link" href="#" rel="noopener">[enable JavaScript to see address]</a>.</p>
+
+<form id="contact-form" class="contact-form" action="https://formspree.io/f/meenblrw" method="POST" novalidate>
+  <label for="cf-name">Name</label>
+  <input type="text" id="cf-name" name="name" autocomplete="name" required data-fs-field />
+  <span class="field-error" data-fs-error="name"></span>
+
+  <label for="cf-email">Email</label>
+  <input type="email" id="cf-email" name="email" autocomplete="email" required data-fs-field />
+  <span class="field-error" data-fs-error="email"></span>
+
+  <label for="cf-subject">Subject</label>
+  <input type="text" id="cf-subject" name="subject" autocomplete="off" data-fs-field />
+  <span class="field-error" data-fs-error="subject"></span>
+
+  <label for="cf-message">Message</label>
+  <textarea id="cf-message" name="message" required data-fs-field></textarea>
+  <span class="field-error" data-fs-error="message"></span>
+
+  <!-- Honeypot: real users won't fill this; bots usually do. Formspree treats _gotcha as a silent reject. -->
+  <div class="hp" aria-hidden="true">
+    <label for="cf-website">Website (leave blank)</label>
+    <input type="text" id="cf-website" name="_gotcha" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <!-- Inbox readability: shows up as the email subject Formspree forwards. -->
+  <input type="hidden" name="_subject" value="brianharward.com contact form" />
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary" data-fs-submit-btn>Send message</button>
+    <span class="muted" style="font-size:0.85rem">Protected by a honeypot and Formspree spam filtering.</span>
+  </div>
+
+  <div class="fs-success" data-fs-success>Thanks. Your message is in. I'll get back to you shortly.</div>
+  <div class="fs-error" data-fs-error></div>
+</form>
+</div>
+
+<aside class="contact-side prose">
+  <div class="callout">
+    <strong>Short on time?</strong><br>
+    Book a 30-minute intro call directly: <a href="https://calendly.com/brian-harward-scirec/30min" target="_blank" rel="noopener">Calendly</a>.
+  </div>
+  <h3>What helps</h3>
+  <p>A sentence or two on the decision, study, or training challenge you're trying to solve goes a long way. If you have a timeline or rough budget, including it speeds up the first reply.</p>
+  <h3>What I do</h3>
+  <ul>
+    <li><a href="consulting-research.html">Research consulting</a> &mdash; surveys, evaluations, mixed methods.</li>
+    <li><a href="consulting-depolarization.html">Depolarization consulting</a> &mdash; with Morgan Hamel of MH Partners Inc.</li>
+    <li><a href="ethics.html">Ethics</a> and <a href="research.html">research science</a>.</li>
+  </ul>
+</aside>
+
+</div>
+</div>
+</section>
+
+<footer class="site-footer">
+<div class="container footer-row">
+<p>&copy; <span id="year"></span> Brian Harward, PhD</p>
+<p>
+<a href="https://www.linkedin.com/in/brianharward/" target="_blank" rel="noopener">LinkedIn</a>
+&middot; <a href="https://calendly.com/brian-harward-scirec/30min" target="_blank" rel="noopener">Calendly</a>
+</p>
+</div>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</footer>
+
+<!-- Email obfuscation: assemble address in JS so scrapers reading raw HTML don't find it. -->
+<script>
+(function(){
+  var u = ['b','r','i','a','n'].join('');
+  var d = ['brianharward','com'].join('.');
+  var addr = u + String.fromCharCode(64) + d;
+  var a = document.getElementById('email-link');
+  if (a) { a.href = 'mailto:' + addr; a.textContent = addr; }
+})();
+</script>
+
+<!-- Formspree AJAX progressive enhancement: form still works without JS. -->
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'meenblrw' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+</body>
+</html>
