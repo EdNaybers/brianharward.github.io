@@ -536,3 +536,99 @@ body.nav-open { overflow: hidden; }
   }
   .research-consulting .beacon-ring { opacity: 0 !important; }
 }
+
+
+/* === Consulting overview animated header === */
+.consulting {
+  display:block;
+  width:100%;
+  max-width:1100px;
+  height:auto;
+  aspect-ratio:1100 / 360;
+  border-radius:12px;
+  border:1px solid var(--border);
+  margin-bottom:28px;
+  background:#0a0d12;
+}
+.consulting .orbit {
+  fill:none;
+  transform-box:fill-box;
+  transform-origin:center;
+  transform:scale(0);
+  vector-effect:non-scaling-stroke;
+  animation:consult-orbit-in 0.7s cubic-bezier(0.22,0.61,0.36,1) forwards;
+}
+.consulting .orbit.o-inner  { animation-delay:0.30s; stroke:#c9a86a; stroke-opacity:0.50; stroke-width:1.2; }
+.consulting .orbit.o-middle { animation-delay:0.45s; stroke:#c9a86a; stroke-opacity:0.30; stroke-width:1.0; stroke-dasharray:3 4; }
+.consulting .orbit.o-outer  { animation-delay:0.60s; stroke:#c9a86a; stroke-opacity:0.18; stroke-width:1.0; }
+.consulting .orbit.o-middle {
+  animation:
+    consult-orbit-in 0.7s cubic-bezier(0.22,0.61,0.36,1) 0.45s forwards,
+    consult-orbit-flow 60s linear 1.5s infinite;
+}
+.consulting .hub-hex,
+.consulting .hub-center {
+  opacity:0;
+  transform-box:fill-box;
+  transform-origin:center;
+  transform:scale(0.4);
+  animation:consult-pop-in 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+.consulting .hub-hex    { animation-delay:0.05s; }
+.consulting .hub-center { animation-delay:0.20s; }
+.consulting .spoke {
+  stroke-dasharray:1;
+  stroke-dashoffset:1;
+  animation:consult-draw 0.40s cubic-bezier(0.32,0.72,0.36,1) forwards;
+  animation-delay:calc(0.85s + var(--i, 0) * 0.06s);
+}
+.consulting .node {
+  opacity:0;
+  transform-box:fill-box;
+  transform-origin:center;
+  transform:scale(0.3);
+  animation:consult-pop-in 0.35s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  animation-delay:calc(1.30s + var(--i, 0) * 0.06s);
+}
+.consulting .key-inner {
+  opacity:0;
+  fill-opacity:1;
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:
+    consult-fade-in 0.40s ease-out forwards,
+    consult-key-pulse 3.2s ease-in-out infinite;
+  animation-delay:
+    calc(2.05s + var(--i, 0) * 0.08s),
+    calc(3.10s + var(--i, 0) * 0.40s);
+}
+.consulting .ping {
+  opacity:0;
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:consult-ping 7.5s ease-out infinite;
+  animation-delay:calc(2.80s + var(--i, 0) * 2.50s);
+}
+@keyframes consult-orbit-in { to { transform:scale(1); } }
+@keyframes consult-orbit-flow { to { stroke-dashoffset:-200; } }
+@keyframes consult-draw { to { stroke-dashoffset:0; } }
+@keyframes consult-pop-in { to { opacity:1; transform:scale(1); } }
+@keyframes consult-fade-in { to { opacity:1; } }
+@keyframes consult-key-pulse {
+  0%, 100% { transform:scale(1);    fill-opacity:1;    }
+  50%      { transform:scale(0.45); fill-opacity:0.40; }
+}
+@keyframes consult-ping {
+  0%   { transform:translate(0, 0);                                opacity:0;   }
+  4%   { transform:translate(calc(var(--dx)*0.08), calc(var(--dy)*0.08)); opacity:0.95; }
+  30%  { transform:translate(var(--dx), var(--dy));                opacity:0;   }
+  100% { transform:translate(var(--dx), var(--dy));                opacity:0;   }
+}
+@media (prefers-reduced-motion: reduce) {
+  .consulting * {
+    animation:none !important;
+    opacity:1 !important;
+    transform:none !important;
+  }
+  .consulting .ping { opacity:0 !important; }
+}
