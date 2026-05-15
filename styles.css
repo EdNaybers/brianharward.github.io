@@ -405,36 +405,47 @@ body.nav-open { overflow: hidden; }
 .depol-header .comb-tip {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: depol-draw 0.30s cubic-bezier(0.32, 0.72, 0.36, 1) forwards;
-  animation-delay: calc(0.50s + var(--i, 0) * 0.055s);
+  stroke-opacity: 0.95;
+  animation:
+    depol-draw 0.30s cubic-bezier(0.32, 0.72, 0.36, 1) forwards,
+    depol-tip-pulse 2.8s ease-in-out infinite;
+  animation-delay:
+    calc(0.50s + var(--i, 0) * 0.055s),
+    calc(var(--i, 0) * -0.20s);
 }
 .depol-header .comb-dot {
   opacity: 0;
+  fill-opacity: 1;
   transform-box: fill-box;
   transform-origin: center;
   animation:
     depol-dot-in 0.32s ease-out forwards,
-    depol-dot-pulse 3.4s ease-in-out infinite;
+    depol-dot-pulse 2.8s ease-in-out infinite;
   animation-delay:
     calc(0.70s + var(--i, 0) * 0.055s),
-    calc(var(--i, 0) * -0.24s);
+    calc(var(--i, 0) * -0.20s);
 }
 @keyframes depol-fade-in { to { opacity: 1; } }
 @keyframes depol-draw    { to { stroke-dashoffset: 0; } }
 @keyframes depol-dot-in  { from { opacity: 0; } to { opacity: 1; } }
 @keyframes depol-dot-pulse {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(0.7); }
+  0%, 100% { transform: scale(1);    fill-opacity: 1;   }
+  50%      { transform: scale(0.45); fill-opacity: 0.35; }
+}
+@keyframes depol-tip-pulse {
+  0%, 100% { stroke-opacity: 0.95; }
+  50%      { stroke-opacity: 0.45; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .depol-header .comb-line,
-  .depol-header .comb-tip,
-  .depol-header .comb-dot,
-  .depol-header .axis {
+  .depol-header * {
     animation: none !important;
     opacity: 1 !important;
     stroke-dashoffset: 0 !important;
+    stroke-opacity: 0.95 !important;
+    fill-opacity: 1 !important;
     transform: none !important;
   }
+  .depol-header .comb-line { stroke-opacity: 0.28 !important; }
+  .depol-header .axis { stroke-opacity: 0.1 !important; }
 }
