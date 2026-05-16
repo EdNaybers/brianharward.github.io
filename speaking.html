@@ -60,9 +60,9 @@
 <article class="speaking-primary" style="border:1px solid var(--border);border-radius:var(--radius);padding:28px 28px 8px;margin-bottom:40px;background:rgba(201,168,96,0.04)">
 
 <figure class="header-anim" aria-label="Animated header image placeholder">
-<svg viewBox="0 0 1100 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="speakTitle speakDesc">
+<svg class="speak-header" viewBox="0 0 1100 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="speakTitle speakDesc">
 <title id="speakTitle">Political Polarization and Engaging with Disagreement</title>
-<desc id="speakDesc">Placeholder for an animated illustration in the same style as the depolarization consulting page.</desc>
+<desc id="speakDesc">Two clusters of nodes on either side of a central axis, with bridging arcs that grow across the gap, suggesting engagement with disagreement and coexistence.</desc>
 <defs>
 <radialGradient id="bg-speak" cx="50%" cy="50%" r="60%">
 <stop offset="0%" stop-color="#1a2029"/>
@@ -70,8 +70,49 @@
 </radialGradient>
 </defs>
 <rect width="1100" height="360" fill="url(#bg-speak)"/>
-<text x="550" y="180" text-anchor="middle" fill="#c9a86a" font-family="Georgia, serif" font-size="22" font-style="italic">[ animated illustration placeholder ]</text>
-<text x="550" y="212" text-anchor="middle" fill="#7a6a48" font-family="Georgia, serif" font-size="14">to be replaced with an animated SVG in the style of /consulting-depolarization.html</text>
+
+<!-- center axis -->
+<line class="axis" x1="550" y1="28" x2="550" y2="332" stroke="#c9a86a" stroke-opacity="0.12" stroke-width="1" stroke-dasharray="2 6"/>
+
+<!-- expanding common-ground rings at center -->
+<circle class="ring" cx="550" cy="180" r="20" fill="none" stroke="#e0c187" stroke-opacity="0.5" stroke-width="1" style="--i: 0"/>
+<circle class="ring" cx="550" cy="180" r="20" fill="none" stroke="#e0c187" stroke-opacity="0.5" stroke-width="1" style="--i: 1"/>
+<circle class="ring" cx="550" cy="180" r="20" fill="none" stroke="#e0c187" stroke-opacity="0.5" stroke-width="1" style="--i: 2"/>
+
+<!-- left cluster nodes -->
+<circle class="node node-l" cx="180" cy="90" r="6" fill="#0e1217" stroke="#c9a86a" stroke-width="1.4" style="--i: 0"/>
+<circle class="node node-l" cx="120" cy="170" r="8" fill="#0e1217" stroke="#c9a86a" stroke-width="1.4" style="--i: 1"/>
+<circle class="node node-l" cx="220" cy="230" r="5" fill="#0e1217" stroke="#c9a86a" stroke-width="1.4" style="--i: 2"/>
+<circle class="node node-l" cx="160" cy="300" r="7" fill="#0e1217" stroke="#c9a86a" stroke-width="1.4" style="--i: 3"/>
+<circle class="node node-l" cx="300" cy="120" r="5" fill="#0e1217" stroke="#c9a86a" stroke-width="1.4" style="--i: 4"/>
+<circle class="node node-l" cx="320" cy="270" r="6" fill="#0e1217" stroke="#c9a86a" stroke-width="1.4" style="--i: 5"/>
+
+<!-- right cluster nodes -->
+<circle class="node node-r" cx="920" cy="90" r="6" fill="#0e1217" stroke="#c9a86a" stroke-width="1.4" style="--i: 0"/>
+<circle class="node node-r" cx="980" cy="170" r="8" fill="#0e1217" stroke="#c9a86a" stroke-width="1.4" style="--i: 1"/>
+<circle class="node node-r" cx="880" cy="230" r="5" fill="#0e1217" stroke="#c9a86a" stroke-width="1.4" style="--i: 2"/>
+<circle class="node node-r" cx="940" cy="300" r="7" fill="#0e1217" stroke="#c9a86a" stroke-width="1.4" style="--i: 3"/>
+<circle class="node node-r" cx="800" cy="120" r="5" fill="#0e1217" stroke="#c9a86a" stroke-width="1.4" style="--i: 4"/>
+<circle class="node node-r" cx="780" cy="270" r="6" fill="#0e1217" stroke="#c9a86a" stroke-width="1.4" style="--i: 5"/>
+
+<!-- bridging arcs from left to right (drawn as quadratic curves) -->
+<path class="bridge" pathLength="1" d="M 180 90 Q 550 30 920 90" fill="none" stroke="#c9a86a" stroke-opacity="0.55" stroke-width="1.2" style="--i: 0"/>
+<path class="bridge" pathLength="1" d="M 120 170 Q 550 180 980 170" fill="none" stroke="#e0c187" stroke-opacity="0.65" stroke-width="1.4" style="--i: 1"/>
+<path class="bridge" pathLength="1" d="M 220 230 Q 550 320 880 230" fill="none" stroke="#c9a86a" stroke-opacity="0.5" stroke-width="1.2" style="--i: 2"/>
+<path class="bridge" pathLength="1" d="M 160 300 Q 550 240 940 300" fill="none" stroke="#c9a86a" stroke-opacity="0.45" stroke-width="1.1" style="--i: 3"/>
+<path class="bridge" pathLength="1" d="M 300 120 Q 550 100 800 120" fill="none" stroke="#c9a86a" stroke-opacity="0.4"  stroke-width="1.1" style="--i: 4"/>
+<path class="bridge" pathLength="1" d="M 320 270 Q 550 260 780 270" fill="none" stroke="#c9a86a" stroke-opacity="0.4"  stroke-width="1.1" style="--i: 5"/>
+
+<!-- traveling pulses along the central bridge -->
+<circle class="pulse" r="3" fill="#e0c187" style="--i: 0">
+  <animateMotion dur="5.5s" repeatCount="indefinite" rotate="auto" path="M 120 170 Q 550 180 980 170"/>
+</circle>
+<circle class="pulse" r="2.5" fill="#e0c187" style="--i: 1">
+  <animateMotion dur="6.5s" begin="1.5s" repeatCount="indefinite" rotate="auto" path="M 180 90 Q 550 30 920 90"/>
+</circle>
+<circle class="pulse" r="2.5" fill="#e0c187" style="--i: 2">
+  <animateMotion dur="7s" begin="2.8s" repeatCount="indefinite" rotate="auto" path="M 220 230 Q 550 320 880 230"/>
+</circle>
 </svg>
 </figure>
 
