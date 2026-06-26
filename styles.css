@@ -631,8 +631,8 @@ body.nav-open { overflow: hidden; }
 }
 
 
-/* --- Responsible AI: model core, fairness balance, scale rings --- */
-.respai {
+/* --- Responsible AI: neural network (how AI works) --- */
+.ai-net{
   display:block;
   width:100%;
   max-width:1100px;
@@ -640,126 +640,51 @@ body.nav-open { overflow: hidden; }
   aspect-ratio:1100 / 360;
   background:#0a0d12;
 }
-.respai .sweep {
-  transform-box:fill-box;
-  transform-origin:center;
-  opacity:0;
-  animation:
-    respai-fade-in 0.8s ease-out 1.1s forwards,
-    respai-sweep 14s linear 1.1s infinite;
-}
-.respai .ring {
-  fill:none;
+.ai-edge{
   stroke:#c9a86a;
-  vector-effect:non-scaling-stroke;
-  transform-box:fill-box;
-  transform-origin:center;
-  transform:scale(0);
-  animation:respai-orbit-in 0.7s cubic-bezier(0.22,0.61,0.36,1) forwards;
-  animation-delay:calc(0.30s + var(--i,0) * 0.14s);
-}
-.respai .ring.r1 { stroke-opacity:0.55; stroke-width:1.3; }
-.respai .ring.r2 { stroke-opacity:0.34; stroke-width:1.1; stroke-dasharray:3 4; }
-.respai .ring.r3 { stroke-opacity:0.22; stroke-width:1.0; }
-.respai .ring.r4 { stroke-opacity:0.14; stroke-width:1.0; stroke-dasharray:2 5; }
-.respai .ring.r2 {
-  animation:
-    respai-orbit-in 0.7s cubic-bezier(0.22,0.61,0.36,1) 0.44s forwards,
-    respai-orbit-flow 60s linear 1.6s infinite;
-}
-.respai .ring.r4 {
-  animation:
-    respai-orbit-in 0.7s cubic-bezier(0.22,0.61,0.36,1) 0.72s forwards,
-    respai-orbit-flow 90s linear reverse 1.6s infinite;
-}
-.respai .spoke {
-  stroke:#c9a86a;
-  stroke-opacity:0.28;
   stroke-width:1;
-  stroke-dasharray:1;
-  stroke-dashoffset:1;
-  animation:respai-draw 0.6s cubic-bezier(0.32,0.72,0.36,1) forwards;
-  animation-delay:calc(0.95s + var(--i,0) * 0.05s);
+  stroke-opacity:0;
+  animation:ai-edge-in 0.9s ease forwards;
+  animation-delay:calc(0.04s * var(--i) + 0.12s * var(--ly));
 }
-.respai .core {
-  fill:#11151a;
-  stroke:#e0c187;
-  stroke-width:1.6;
-  transform-box:fill-box;
-  transform-origin:center;
-  opacity:0;
-  transform:scale(0.4);
-  animation:respai-pop-in 0.55s cubic-bezier(0.22,0.61,0.36,1) 0.15s forwards;
-}
-.respai .core-dot {
-  fill:#c9a86a;
-  opacity:0;
-  transform-box:fill-box;
-  transform-origin:center;
-  animation:
-    respai-fade-in 0.4s ease-out forwards,
-    respai-core-pulse 3.4s ease-in-out infinite;
-  animation-delay:
-    calc(0.70s + var(--i,0) * 0.07s),
-    calc(2.2s + var(--i,0) * 0.30s);
-}
-.respai .core-dot.core-mid { fill:#e0c187; }
-.respai .balance {
-  transform-box:fill-box;
-  transform-origin:550px 120px;
-  opacity:0;
-  animation:
-    respai-fade-in 0.5s ease-out 1.0s forwards,
-    respai-balance-rock 5.5s ease-in-out 1.6s infinite;
-}
-.respai .beam,
-.respai .beam-post { stroke:#e0c187; stroke-width:2; stroke-linecap:round; }
-.respai .balance-pivot { fill:#e0c187; }
-.respai .pan { fill:none; stroke:#6aa6c9; stroke-width:1.6; }
-.respai .node {
-  fill:#c9a86a;
-  opacity:0;
-  transform-box:fill-box;
-  transform-origin:center;
-  animation:respai-pop-in 0.45s cubic-bezier(0.22,0.61,0.36,1) forwards;
-  animation-delay:calc(1.25s + var(--i,0) * 0.06s);
-}
-.respai .ping {
+@keyframes ai-edge-in{ from{ stroke-opacity:0; } to{ stroke-opacity:0.18; } }
+.ai-node{ opacity:0; transform-box:fill-box; transform-origin:center; animation:ai-node-in 0.6s ease forwards; animation-delay:calc(0.18s * var(--ly) + 0.05s * var(--i)); }
+@keyframes ai-node-in{ from{ opacity:0; transform:scale(0.4); } to{ opacity:1; transform:scale(1); } }
+.ai-glow{ fill:url(#ai-glow); opacity:0; transform-box:fill-box; transform-origin:center; animation:ai-glow-pulse 3.2s ease-in-out infinite; animation-delay:calc(0.3s * var(--ly) + 0.2s * var(--i)); }
+@keyframes ai-glow-pulse{ 0%,100%{ opacity:0.12; transform:scale(0.8); } 50%{ opacity:0.5; transform:scale(1.15); } }
+.ai-dot{ fill:#0a0d12; stroke:#c9a86a; stroke-width:1.6; }
+.ai-in .ai-dot{ stroke:#6aa6c9; }
+.ai-out .ai-dot{ stroke:#e0c187; fill:#1a1408; }
+.ai-signal{
   fill:#e0c187;
   opacity:0;
-  transform-box:fill-box;
-  transform-origin:center;
-  animation:respai-ping 7.5s ease-out infinite;
-  animation-delay:calc(2.9s + var(--i,0) * 2.50s);
+  animation:ai-flow 2.2s linear infinite;
+  animation-delay:calc(var(--d) * 1s + 1s);
 }
-@keyframes respai-orbit-in   { to { transform:scale(1); } }
-@keyframes respai-orbit-flow { to { stroke-dashoffset:-200; } }
-@keyframes respai-draw       { to { stroke-dashoffset:0; } }
-@keyframes respai-pop-in     { to { opacity:1; transform:scale(1); } }
-@keyframes respai-fade-in    { to { opacity:1; } }
-@keyframes respai-sweep      { to { transform:rotate(360deg); } }
-@keyframes respai-core-pulse {
-  0%, 100% { transform:scale(1);    opacity:1;   }
-  50%      { transform:scale(0.55); opacity:0.45; }
+@keyframes ai-flow{
+  0%{ transform:translate(calc(var(--x1) * 1px), calc(var(--y1) * 1px)); opacity:0; }
+  12%{ opacity:1; }
+  88%{ opacity:1; }
+  100%{ transform:translate(calc(var(--x2) * 1px), calc(var(--y2) * 1px)); opacity:0; }
 }
-@keyframes respai-balance-rock {
-  0%, 100% { transform:rotate(-3deg); }
-  50%      { transform:rotate(3deg);  }
+.ai-cap{
+  fill:#5b6470;
+  font-family:inherit;
+  font-size:13px;
+  letter-spacing:0.08em;
+  text-anchor:middle;
+  text-transform:uppercase;
+  opacity:0;
+  animation:ai-cap-in 0.8s ease forwards 1.1s;
 }
-@keyframes respai-ping {
-  0%   { transform:translate(0,0);                                         opacity:0;    }
-  4%   { transform:translate(calc(var(--dx)*0.08), calc(var(--dy)*0.08));  opacity:0.95; }
-  30%  { transform:translate(var(--dx), var(--dy));                        opacity:0;    }
-  100% { transform:translate(var(--dx), var(--dy));                        opacity:0;    }
+@keyframes ai-cap-in{ from{ opacity:0; } to{ opacity:0.7; } }
+@media (prefers-reduced-motion: reduce){
+  .ai-edge{ animation:none; stroke-opacity:0.18; }
+  .ai-node{ animation:none; opacity:1; }
+  .ai-glow{ animation:none; opacity:0.25; }
+  .ai-signal{ animation:none; opacity:0; }
+  .ai-cap{ animation:none; opacity:0.7; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .respai * {
-    animation:none !important;
-    opacity:1 !important;
-    transform:none !important;
-  }
-}
-
 /* === Ethics animated header === */
 .ethics {
   display:block;
