@@ -990,3 +990,11 @@ body.nav-open { overflow: hidden; }
 .card-grid-3{grid-template-columns:repeat(3,1fr);}
 @media (max-width:900px){.card-grid-3{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:560px){.card-grid-3{grid-template-columns:1fr;}}
+
+/* === ambient node-field background === */
+#bg-net{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;}
+body{position:relative;}
+body > *:not(#bg-net){position:relative;z-index:1;}
+.hero{position:relative;}
+.hero::before{content:"";position:absolute;top:-10%;right:-5%;width:60%;height:120%;background:radial-gradient(closest-side, rgba(201,168,106,0.14), rgba(201,168,106,0.04) 45%, transparent 70%);pointer-events:none;z-index:-1;filter:blur(8px);}
+@media (prefers-reduced-motion: reduce){#bg-net{opacity:.7;}}
