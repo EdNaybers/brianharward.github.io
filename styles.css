@@ -190,13 +190,13 @@ section { padding: 72px 0; }
 /* The dropdown panel — absolute, hidden by default */
 .primary-nav .nav-item.has-dropdown .dropdown {
   position: absolute;
-  top: calc(100% + 10px);
+  top: 100%;
   left: -8px;
   min-width: 240px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 8px 0;
+  padding: 18px 0 8px;
   box-shadow: 0 14px 36px rgba(0,0,0,.55);
   opacity: 0;
   visibility: hidden;
