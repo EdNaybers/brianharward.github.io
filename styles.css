@@ -82,7 +82,7 @@ section { padding: 72px 0; }
 .card-link { font-size: 14px; color: var(--link); }
 
 .reviews { background: var(--bg-elev); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.quote-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.quote-grid{display:grid;grid-template-columns:1fr;gap:18px;}
 .quote { margin: 0; padding: 26px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
 .quote-wide { grid-column: 1 / -1; }
 .quote blockquote { margin: 0 0 14px; font-family: var(--font-serif); font-size: 18px; line-height: 1.55; }
@@ -979,3 +979,14 @@ body.nav-open { overflow: hidden; }
 .hero-image::after{ content:""; position:absolute; inset:-1px; border-radius: var(--radius); pointer-events:none; box-shadow: 0 0 0 1px rgba(201,168,106,0.18), 0 18px 50px rgba(0,0,0,0.45); }
 .hero-image img{ position: relative; z-index: 1; }
 
+/* === quote gradient borders === */
+.quote-grid > .quote{grid-column:1/-1;border-width:1px;transition:border-color .3s ease;}
+.quote-grid > .quote:nth-child(1){border-color:rgb(201,168,106);}
+.quote-grid > .quote:nth-child(2){border-color:rgb(160,137,93);}
+.quote-grid > .quote:nth-child(3){border-color:rgb(119,106,79);}
+.quote-grid > .quote:nth-child(4){border-color:rgb(77,74,66);}
+.quote-grid > .quote:nth-child(5){border-color:rgb(36,43,52);}
+/* === card-grid-3 (What I Do) === */
+.card-grid-3{grid-template-columns:repeat(3,1fr);}
+@media (max-width:900px){.card-grid-3{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.card-grid-3{grid-template-columns:1fr;}}
