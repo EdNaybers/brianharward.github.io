@@ -33,3 +33,18 @@ Both are linked in every page. Search for \`calendly.com\` or \`linkedin.com\` t
 ## Deployment
 
 GitHub Pages automatically deploys from the \`main\` branch. Once the custom domain DNS is configured (CNAME record pointing `brianharward.com` to `ednaybers.github.io`), the site will be live at https://brianharward.com.
+
+### Pages added September 2026
+```
+hiring.html        For hiring teams: roles open to, methods, CV download
+work.html          Selected work and publications
+Brian-Harward-CV.pdf   CV, linked from hiring.html
+```
+The nav lives inline in every HTML file. To add or rename a nav item, search for
+`primary-nav` and edit the same block in each page. Research is a dropdown
+(Research science, Selected work), matching the Consulting dropdown pattern.
+
+This site is portable: plain HTML, one CSS file, one JS file, relative links
+only. It runs as-is on GitHub Pages or on any static host. Moving it means
+copying the files; nothing depends on the server. `CNAME` is the only
+GitHub-specific file, and it is simply ignored elsewhere.
