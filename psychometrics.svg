@@ -14,7 +14,5 @@
   <line x1="680" y1="295" x2="680" y2="305"/><line x1="740" y1="295" x2="740" y2="305"/><line x1="800" y1="293" x2="800" y2="307"/><line x1="860" y1="295" x2="860" y2="305"/><line x1="920" y1="295" x2="920" y2="305"/>
 </g>
 <circle class="pm-peak" cx="800" cy="120" r="6" fill="#e0c187"/>
-<g class="pm-dots" fill="#e0c187">
-  <circle class="pm-dot d1" r="5"/><circle class="pm-dot d2" r="5"/><circle class="pm-dot d3" r="5"/>
-</g>
+<g class="pm-dots" fill="#e0c187"><circle class="pm-dot d1" r="5" opacity="0"><animateMotion dur="3.4s" begin="1.4s" repeatCount="indefinite" path="M 205 232 C 330 300, 470 300, 585 248" fill="freeze"/><animate attributeName="opacity" dur="3.4s" begin="1.4s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.08;0.78;0.9;1"/></circle><circle class="pm-dot d2" r="5" opacity="0"><animateMotion dur="3.4s" begin="2.0s" repeatCount="indefinite" path="M 320 236 C 420 290, 500 288, 592 254" fill="freeze"/><animate attributeName="opacity" dur="3.4s" begin="2.0s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.08;0.78;0.9;1"/></circle><circle class="pm-dot d3" r="5" opacity="0"><animateMotion dur="3.4s" begin="2.6s" repeatCount="indefinite" path="M 435 232 C 500 270, 545 272, 600 258" fill="freeze"/><animate attributeName="opacity" dur="3.4s" begin="2.6s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.08;0.78;0.9;1"/></circle></g>
 </svg>

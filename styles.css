@@ -1034,21 +1034,12 @@ body > *:not(#bg-net):not(.site-header){position:relative;z-index:1;}
   opacity:0; transform-box:fill-box; transform-origin:center;
   animation:pm-peak-pulse 3.4s ease-in-out 2.2s infinite;
 }
-.psychometrics .pm-dot { opacity:0; offset-rotate:0deg; animation:pm-travel 3.4s ease-in-out infinite; }
-.psychometrics .pm-dot.d1 { offset-path:path("M 205 232 C 330 300, 470 300, 585 248"); animation-delay:1.4s; }
-.psychometrics .pm-dot.d2 { offset-path:path("M 320 236 C 420 290, 500 288, 592 254"); animation-delay:2.0s; }
-.psychometrics .pm-dot.d3 { offset-path:path("M 435 232 C 500 270, 545 272, 600 258"); animation-delay:2.6s; }
+/* Dot travel is handled by SVG animateMotion inside the graphic, which
+   Firefox animates reliably; CSS offset-path is not used here. */
 
 @keyframes pm-fade-in { to { opacity:1; } }
 @keyframes pm-rise { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
 @keyframes pm-draw { to { stroke-dashoffset:0; } }
-@keyframes pm-travel {
-  0%   { offset-distance:0%;   opacity:0; }
-  8%   { opacity:1; }
-  78%  { offset-distance:100%; opacity:1; }
-  90%  { offset-distance:100%; opacity:0; }
-  100% { offset-distance:100%; opacity:0; }
-}
 @keyframes pm-peak-pulse {
   0%,100% { opacity:0.45; transform:scale(0.85); }
   50%     { opacity:1;    transform:scale(1.2); }
@@ -1061,5 +1052,5 @@ body > *:not(#bg-net):not(.site-header){position:relative;z-index:1;}
   .psychometrics .pm-person { animation:none; opacity:1; }
   .psychometrics .pm-curve { animation:none; stroke-dashoffset:0; }
   .psychometrics .pm-peak { animation:none; opacity:0.8; }
-  .psychometrics .pm-dot { animation:none; opacity:0; }
+  .psychometrics .pm-dot { display:none; }
 }
